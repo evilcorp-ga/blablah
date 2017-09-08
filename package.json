@@ -1,0 +1,25 @@
+{
+  "name": "blablah",
+  "version": "1.0.0",
+  "description": "Irc webchat applciation without using javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/app.js",
+    "devServer": "nodemon ./bin/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evilcorp-ga/blablah.git"
+  },
+  "keywords": [],
+  "author": "Rahul Bhola<rahulbhola@gmx.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evilcorp-ga/blablah/issues"
+  },
+  "homepage": "https://github.com/evilcorp-ga/blablah#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  }
+}
