@@ -28,6 +28,18 @@ Object.keys(routes).forEach((route) => {
     app.use("/"+route,routes[route]);
 });
 
+// Load index page for application
+app.get("/",(req,res,next) => {
+    res.render('base',{});
+});
+
+// Page not found handle
+app.use("*",(req,res,next) => {
+    res
+        .status(404)
+        .send("Route not found");
+});
+
 // Get port to listen on
 var http_port = process.env.http_port;
 http_port     = parseInt(http_port,10);

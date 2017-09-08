@@ -1,0 +1,11 @@
+html body {
+    padding: 0px;
+    margin: 0px;
+    color: #303030;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+h1,h2,h3,h4 {
+    font-weight: normal;
+}
