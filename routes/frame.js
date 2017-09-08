@@ -12,6 +12,10 @@ router.get("/chat",(req,res,next)=>{
     res.render("frames/chat",{});
 });
 
+router.get("/message",(req,res,next)=>{
+    res.render("frames/message",{});
+});
+
 router.get("/controls",(req,res,next)=>{
     res.render("frames/controls",{});
 });
