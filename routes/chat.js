@@ -9,7 +9,7 @@ var router = express.Router();
  * on server status
  */
 router.get("/:id",(req,res,next)=>{
-    res.render("chat",{});
+    res.render("chat",{"id": req.params.id});
 });
 
 

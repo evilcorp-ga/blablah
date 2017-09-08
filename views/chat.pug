@@ -3,8 +3,8 @@ html
     head
         title IRC Chat
     frameset(rows="10%, 80%, 10%")
-        frame(name="message" src="/frame/message")
-        frame(name="chat" src="/frame/chat")
-        frame(name="controls" src="/frame/controls")
+        frame(name="message" src="/frame/message/"+id)
+        frame(name="chat" src="/frame/chat/"+id)
+        frame(name="controls" src="/frame/controls/"+id)
     noframes
         h1 No support for frames

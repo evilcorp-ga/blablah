@@ -1,7 +1,7 @@
 html body {
     padding: 0px;
     margin: 0px;
-    color: white;
+    color: green;
     font-family: monospace;
     font-size: 1.2em;
     background: black;
@@ -21,8 +21,8 @@ h1,h2,h3,h4 {
     margin-right: auto;
     margin-top: 10px;
     background:black;
-    color: white;
-    border: 1px solid white;
+    color: green;
+    border: 1px solid green;
     padding: 5px;
     font-size: 1.2em;
 }
