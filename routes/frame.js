@@ -6,8 +6,7 @@ const session = require('../lib/session');
 var router = express.Router();
 
 /**
- * Pretty useless route just to check
- * on server status
+ * List all messages and render them
  */
 router.get("/chat/:id",(req,res,next)=>{
     var sess_id = new session("irc.evilcorp.ga",6667);
@@ -21,10 +20,33 @@ router.get("/chat/:id",(req,res,next)=>{
         });
 });
 
-router.get("/message/:id",(req,res,next)=>{
-    res.render("frames/message",{});
+/**
+ * Post new message
+ */
+router.post("/message/:id",(req,res,next)=>{
+    var cmd = req.body.command;
+    var sess_id = new session("irc.evilcorp.ga",6667);
+    sess_id
+        .send_message(req.params.id,cmd)
+        .then((resp) => {
+            res.render("frames/message",{'id': req.params.id});
+        })
+        .catch((err) => {
+            res.render("frames/message",{'err':err.message,'id': req.params.id});
+        });
 });
 
+/**
+ * Form to post new message
+ */
+router.get("/message/:id",(req,res,next)=>{
+    res.render("frames/message",{"id": req.params.id});
+});
+
+/**
+ * Not sure what this is yet
+ * and i don't care xD
+ */
 router.get("/controls/:id",(req,res,next)=>{
     res.render("frames/controls",{});
 });
