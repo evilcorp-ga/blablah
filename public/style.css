@@ -55,3 +55,20 @@ h1,h2,h3,h4 {
     border-bottom: 1px dashed white;
     padding-bottom: 10px;
 }
+
+.kick {
+    color: yellow;
+    margin-left: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.white {
+    color: white;
+}

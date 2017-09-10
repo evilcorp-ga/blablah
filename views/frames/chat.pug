@@ -6,6 +6,9 @@ html
         meta(http-equiv="refresh" content="5")
     body.box
         for msg in logs
+            if msg.type == "kick"
+                pre.line
+                    code.kick #[span.red #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] from #[span.green #{msg.kick_from}] : #[span.white #{msg.kick_message}]
             if msg.type == "mine"
                 pre.line
                     code.msg #[span.mine #{msg.from}] : #[span #{msg.message}]
