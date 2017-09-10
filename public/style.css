@@ -26,3 +26,32 @@ h1,h2,h3,h4 {
     padding: 5px;
     font-size: 1.2em;
 }
+
+.msg .mine {
+    color: red;
+    display: inline-block;
+    width: 80px;
+}
+
+.msg .from {
+    color: green;
+    display: inline-block;
+    width: 80px;
+}
+
+.msg span {
+    color: white;
+    margin-left: 10px;
+}
+
+.box {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.line {
+    border-bottom: 1px dashed white;
+    padding-bottom: 10px;
+}

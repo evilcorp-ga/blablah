@@ -4,7 +4,11 @@ html
         title Chat
         link(rel="stylesheet" href="/style.css")
         meta(http-equiv="refresh" content="5")
-    body
+    body.box
         for msg in logs
-            pre= msg
-        #end
+            if msg.type == "mine"
+                pre.line
+                    code.msg #[span.mine #{msg.from}] : #[span #{msg.message}]
+            if msg.type == "message"
+                pre.line
+                    code.msg #[span.from #{msg.from}] : #[span #{msg.message}]
