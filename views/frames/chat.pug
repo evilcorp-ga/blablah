@@ -11,7 +11,7 @@ html
                     code.kick #[span.red #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] : #[span.yellow #{msg.kick_message}]
             if msg.type == "mine"
                 pre.line
-                    code.msg #[span.mine #{msg.from}] : #[span #{msg.message}]
+                    code.msg #[span.mine #{msg.from}] : #[span.yellow #{msg.message}]
             if msg.type == "message"
                 pre.line
-                    code.msg #[span.from #{msg.from}] : #[span #{msg.message}]
+                    code.msg #[span.from(style="color:"+msg.color) #{msg.from}] : #[span #{msg.message}]
