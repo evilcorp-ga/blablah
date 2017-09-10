@@ -21,7 +21,7 @@ h1,h2,h3,h4 {
     margin-right: auto;
     margin-top: 10px;
     background:black;
-    color: green;
+    color: white;
     border: 1px solid green;
     padding: 5px;
     font-size: 1.2em;
@@ -57,7 +57,7 @@ h1,h2,h3,h4 {
 }
 
 .kick {
-    color: yellow;
+    color: white;
     margin-left: 10px;
 }
 
@@ -71,4 +71,8 @@ h1,h2,h3,h4 {
 
 .white {
     color: white;
+}
+
+.yellow {
+    color: yellow;
 }
