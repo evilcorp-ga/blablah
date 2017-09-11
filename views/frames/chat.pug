@@ -9,6 +9,9 @@ html
             if msg.type == "kick"
                 pre.line
                     code.kick #[span.red #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] : #[span.yellow #{msg.kick_message}]
+            if msg.type == "action"
+                pre.line
+                    code #[span.bold #{msg.from}] #[span.bold #{msg.message}]
             if msg.type == "mine"
                 pre.line
                     code.msg #[span.mine #{msg.from}] : #[span.yellow #{msg.message}]
