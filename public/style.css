@@ -30,13 +30,13 @@ h1,h2,h3,h4 {
 .msg .mine {
     color: red;
     display: inline-block;
-    width: 80px;
+    width: 100px;
 }
 
 .msg .from {
     color: green;
     display: inline-block;
-    width: 80px;
+    width: 100px;
 }
 
 .msg span {
