@@ -9,9 +9,12 @@ html
             if msg.type == "kick"
                 pre.line
                     code.kick #[span.red #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] : #[span.yellow #{msg.kick_message}]
+            if msg.type == "quit"
+                pre.line
+                    code.action #[span.bold.red #{msg.user}] #[span.white left that channel]
             if msg.type == "join"
                 pre.line
-                    code.action #[span.bold.red #{msg.user}] Joined the channel
+                    code.action #[span.bold.green #{msg.user}] #[span.white Joined the channel]
             if msg.type == "action"
                 pre.line
                     code.action #[span.bold #{msg.from}] #[span.bold #{msg.message}]
