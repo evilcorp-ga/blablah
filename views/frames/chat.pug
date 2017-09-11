@@ -23,4 +23,4 @@ html
                     code.msg #[span.mine #{msg.from}] : #[span.yellow #{msg.message}]
             if msg.type == "message"
                 pre.line
-                    code.msg #[span.from(style="color:"+msg.color) #{msg.from}] : #[span #{msg.message}]
+                    code.msg #[span.from(style="color:"+msg.color) #{msg.from}] : #[span !{msg.message}]
