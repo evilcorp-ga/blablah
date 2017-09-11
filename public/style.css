@@ -56,6 +56,10 @@ h1,h2,h3,h4 {
     padding-bottom: 10px;
 }
 
+.action {
+    margin-left: 10px;
+}
+
 .kick {
     color: white;
     margin-left: 10px;
