@@ -3,7 +3,7 @@ html
     head
         title Chat
         link(rel="stylesheet" href="/style.css")
-        meta(http-equiv="refresh" content="5")
+        meta(http-equiv="refresh" content="10")
     body.box
         for msg in logs
             if msg.type == "kick"
@@ -20,7 +20,7 @@ html
                     code.action #[span.bold #{msg.from}] #[span.bold #{msg.message}]
             if msg.type == "mine"
                 pre.line
-                    code.msg #[span.mine #{msg.from}] : #[span.yellow #{msg.message}]
+                    code.msg #[span.mine #{msg.from}] : #[span.yellow !{msg.message}]
             if msg.type == "message"
                 pre.line
                     code.msg #[span.from(style="color:"+msg.color) #{msg.from}] : #[span !{msg.message}]
