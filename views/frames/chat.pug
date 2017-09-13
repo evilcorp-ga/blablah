@@ -5,22 +5,28 @@ html
         link(rel="stylesheet" href="/style.css")
         meta(http-equiv="refresh" content="10")
     body.box
-        for msg in logs
-            if msg.type == "kick"
-                pre.line
-                    code.kick #[span.red #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] : #[span.yellow #{msg.kick_message}]
-            if msg.type == "quit"
-                pre.line
-                    code.action #[span.bold.red #{msg.user}] #[span.white left that channel]
-            if msg.type == "join"
-                pre.line
-                    code.action #[span.bold.green #{msg.user}] #[span.white Joined the channel]
-            if msg.type == "action"
-                pre.line
-                    code.action #[span.bold #{msg.from}] #[span.bold #{msg.message}]
-            if msg.type == "mine"
-                pre.line
-                    code.msg #[span.mine #{msg.from}] : #[span.yellow !{msg.message}]
-            if msg.type == "message"
-                pre.line
-                    code.msg #[span.from(style="color:"+msg.color) #{msg.from}] : #[span !{msg.message}]
+        div.users
+            p.bold.red Users
+            ul
+                for user in users
+                    li= user
+        div.canvas
+            for msg in logs
+                if msg.type == "kick"
+                    pre.line
+                        code.kick #[span.brown #{msg.kicked_user}] was kicked by #[span.green #{msg.kicked_by}] : #[span.yellow #{msg.kick_message}]
+                if msg.type == "quit"
+                    pre.line
+                        code.action #[span.bold.brown #{msg.user}] #[span left that chat.]
+                if msg.type == "join"
+                    pre.line
+                        code.action #[span.bold.brown #{msg.user}] #[span Joined the chat.]
+                if msg.type == "action"
+                    pre.line
+                        code.action #[span.bold #{msg.from}] #[span.bold #{msg.message}]
+                if msg.type == "mine"
+                    pre.line
+                        code.msg #[span.mine #{msg.from}] : #[span.white !{msg.message}]
+                if msg.type == "message"
+                    pre.line
+                        code.msg #[span.from(style="color: "+msg.color) #{msg.from}] : #[span !{msg.message}]

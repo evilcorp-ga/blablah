@@ -12,8 +12,8 @@ router.get("/chat/:id",(req,res,next)=>{
     var sess_id = new session("irc.evilcorp.ga",6667);
     sess_id
         .get_logs(req.params.id)
-        .then((logs) => {
-            res.render("frames/chat",{"logs":logs});
+        .then((conn) => {
+            res.render("frames/chat",{"logs":conn.logs,"users":conn.users});
         })
         .catch((err) => {
             res.status(400).send(err.message);
