@@ -24,12 +24,15 @@ router.get("/chat/:id",(req,res,next)=>{
  * Post new message
  */
 router.post("/message/:id",(req,res,next)=>{
+    if( req.query.channel === undefined || req.query.channel === null) 
+        req.query.channel = "#lobby";
     var cmd = req.body.command;
+    var channel = req.query.channel;
     var sess_id = new session("irc.evilcorp.ga",6667);
     if( req.query.channel === undefined || req.query.channel === null) 
         req.query.channel = "#lobby";
     sess_id
-        .send_message(req.params.id,cmd)
+        .send_message(req.params.id,cmd,channel)
         .then((resp) => {
             res.render("frames/message",{'id': req.params.id, "channel": req.query.channel});
         })

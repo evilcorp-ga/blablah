@@ -5,7 +5,7 @@ html
         link(rel="stylesheet" href="/style.css")
     body
         code= err
-        form(method="POST" action="/frame/message/"+id)
+        form(method="POST" action="/frame/message/"+id+"?channel="+channel)
             #channel
                 span.yellow [#{channel}]
             input#input(type="text" placeholder="message" name="command" autocomplete="off" autofocus)
