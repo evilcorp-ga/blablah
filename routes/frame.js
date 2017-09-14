@@ -13,7 +13,7 @@ router.get("/chat/:id",(req,res,next)=>{
     sess_id
         .get_logs(req.params.id)
         .then((conn) => {
-            res.render("frames/chat",{"logs":conn.logs,"users":conn.users});
+            res.render("frames/chat",{"id": req.params.id, "logs":conn.logs,"users":conn.users});
         })
         .catch((err) => {
             res.status(400).send(err.message);
@@ -26,13 +26,15 @@ router.get("/chat/:id",(req,res,next)=>{
 router.post("/message/:id",(req,res,next)=>{
     var cmd = req.body.command;
     var sess_id = new session("irc.evilcorp.ga",6667);
+    if( req.query.channel === undefined || req.query.channel === null) 
+        req.query.channel = "#lobby";
     sess_id
         .send_message(req.params.id,cmd)
         .then((resp) => {
-            res.render("frames/message",{'id': req.params.id});
+            res.render("frames/message",{'id': req.params.id, "channel": req.query.channel});
         })
         .catch((err) => {
-            res.render("frames/message",{'err':err.message,'id': req.params.id});
+            res.render("frames/message",{'err':err.message,'id': req.params.id, "channel": req.query.channel});
         });
 });
 
@@ -40,7 +42,9 @@ router.post("/message/:id",(req,res,next)=>{
  * Form to post new message
  */
 router.get("/message/:id",(req,res,next)=>{
-    res.render("frames/message",{"id": req.params.id});
+    if( req.query.channel === undefined || req.query.channel === null) 
+        req.query.channel = "#lobby";
+    res.render("frames/message",{"id": req.params.id,"channel": req.query.channel});
 });
 
 /**

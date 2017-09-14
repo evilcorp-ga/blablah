@@ -7,5 +7,5 @@ html
         code= err
         form(method="POST" action="/frame/message/"+id)
             #channel
-                span.yellow [#lobby]
+                span.yellow [#{channel}]
             input#input(type="text" placeholder="message" name="command" autocomplete="off" autofocus)

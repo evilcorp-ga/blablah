@@ -16,7 +16,7 @@ var app = express();
 // Middleware initialization
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 app.set('view engine', 'pug')
 app.use(express.static('public'));
 
@@ -35,11 +35,11 @@ app.get("/",(req,res,next) => {
 });
 
 // Page not found handle
-app.use("*",(req,res,next) => {
-    res
-        .status(404)
-        .send("Route not found");
-});
+/*app.use("*",(req,res,next) => {*/
+    //res
+        //.status(404)
+        //.send("Route not found");
+//});
 
 // Get port to listen on
 var http_port = process.env.http_port;

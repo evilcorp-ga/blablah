@@ -9,7 +9,8 @@ html
             p.bold.red Users
             ul
                 for user in users
-                    li= user
+                    li
+                        a(href="/frame/message/"+id+"?channel="+user target="message")= user
         div.canvas
             for msg in logs
                 if msg.type == "kick"
