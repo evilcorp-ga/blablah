@@ -24,7 +24,7 @@ router.get("/chat/:id",(req,res,next)=>{
  * Post new message
  */
 router.post("/message/:id",(req,res,next)=>{
-    if( req.query.channel === undefined || req.query.channel === null) 
+    if( req.query.channel === undefined || req.query.channel === "") 
         req.query.channel = "#lobby";
     var cmd = req.body.command;
     var channel = req.query.channel;
