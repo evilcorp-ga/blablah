@@ -1,5 +1,6 @@
 // Require all external lib
 const express = require('express');
+const session = require('../lib/session');
 
 // Get instance to router
 var router = express.Router();

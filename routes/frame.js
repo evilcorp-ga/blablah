@@ -51,5 +51,16 @@ router.get("/controls/:id",(req,res,next)=>{
     res.render("frames/controls",{});
 });
 
+router.post("/controls/:id",(req,res,next)=>{
+    var sess_id = new session("irc.evilcorp.ga",6667);
+    sess_id
+        .logout(req.params.id)
+        .then(()=> {
+            res.redirect("/");
+        })
+        .catch((err)=> {
+            res.send(err.message);
+        });
+});
 
 module.exports = router;

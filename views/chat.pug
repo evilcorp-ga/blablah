@@ -2,8 +2,9 @@ doctype html
 html
     head
         title IRC Chat
-    frameset(rows="10%, 90%")
+    frameset(rows="10%, 80%, 10%")
         frame(name="message" src="/frame/message/"+id frameBorder="0")
         frame(name="chat" src="/frame/chat/"+id frameBorder="0")
+        frame(name="chat" src="/frame/controls/"+id frameBorder="0")
     noframes
         h1 No support for frames
