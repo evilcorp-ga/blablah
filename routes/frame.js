@@ -10,6 +10,10 @@ var router = express.Router();
  */
 router.get("/chat/:id",(req,res,next)=>{
     var sess_id = new session("irc.evilcorp.ga",6667);
+    if( req.query.channel === undefined || req.query.channel === "")
+        req.query.channel = "#lobby";
+    sess_id
+	.get_users(req.params.id, req.query.channel);
     sess_id
         .get_logs(req.params.id)
         .then((conn) => {
