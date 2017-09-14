@@ -6,6 +6,10 @@ html
         meta(http-equiv="refresh" content="5")
     body.box
         div.users
+            p.bold.red Rooms
+            ul
+                li
+                    a(href="/frame/message/"+id+"?channel=#lobby" target="message") #Lobby
             p.bold.red Users
             ul
                 for user in users

@@ -34,10 +34,17 @@ router.post("/message/:id",(req,res,next)=>{
     sess_id
         .send_message(req.params.id,cmd,channel)
         .then((resp) => {
-            res.render("frames/message",{'id': req.params.id, "channel": req.query.channel});
+            res.render("frames/message",{
+                'id': req.params.id,
+                'channel': req.query.channel
+            });
         })
         .catch((err) => {
-            res.render("frames/message",{'err':err.message,'id': req.params.id, "channel": req.query.channel});
+            res.render("frames/message",{
+                'err':err.message,
+                'id': req.params.id,
+                'channel': req.query.channel
+            });
         });
 });
 
@@ -47,13 +54,12 @@ router.post("/message/:id",(req,res,next)=>{
 router.get("/message/:id",(req,res,next)=>{
     if( req.query.channel === undefined || req.query.channel === null) 
         req.query.channel = "#lobby";
-    res.render("frames/message",{"id": req.params.id,"channel": req.query.channel});
+    res.render("frames/message",{
+        "id": req.params.id,
+        "channel": req.query.channel
+    });
 });
 
-/**
- * Not sure what this is yet
- * and i don't care xD
- */
 router.get("/controls/:id",(req,res,next)=>{
     res.render("frames/controls",{});
 });
