@@ -31,7 +31,13 @@ html
                         code.action #[span.bold #{msg.from}] #[span.bold #{msg.message}]
                 if msg.type == "mine"
                     pre.line
-                        code.msg #[span.mine #{msg.from}] : #[span.white !{msg.message}]
+                        if msg.pm
+                            code #[span.mine [#{msg.from} - #{msg.to}]] : #[span.white !{msg.message}]
+                        else
+                            code.msg #[span.mine #{msg.from}] : #[span.white !{msg.message}]
                 if msg.type == "message"
                     pre.line
-                        code.msg #[span.from(style="color: "+msg.color) #{msg.from}] : #[span !{msg.message}]
+                        if msg.pm
+                            code #[span.from(style="color: "+msg.color) [#{msg.from} - #{msg.to}]] : #[span !{msg.message}]
+                        else
+                            code.msg #[span.from(style="color: "+msg.color) #{msg.from}] : #[span !{msg.message}]
