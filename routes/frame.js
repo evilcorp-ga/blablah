@@ -19,7 +19,7 @@ router.get("/chat/:id",(req,res,next)=>{
             res.render("frames/chat",{"id": req.params.id, "logs":conn.logs,"users":conn.users});
         })
         .catch((err) => {
-            res.status(400).render("frames/controls",{
+            res.status(400).render("frames/error",{
                 "id": req.params.id,
                 "error": "Invalid or expired session"
             });
