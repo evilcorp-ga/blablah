@@ -10,9 +10,6 @@ var router = express.Router();
  */
 router.get("/",(req,res,next)=>{
     res.send("<!DOCTYPE html><html><head><title>blablah chat</title></head><body>\n\n");
-    //setInterval(function() {
-        //res.write("<b>hello</b>\n\n");
-    //},1000);
 });
 
 
