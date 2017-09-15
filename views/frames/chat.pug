@@ -3,7 +3,7 @@ html
     head
         title Chat
         link(rel="stylesheet" href="/style.css")
-        meta(http-equiv="refresh" content="5")
+        meta(http-equiv="refresh" content="5;url=#bottom")
     body.box
         div.users
             p.bold.red Rooms
@@ -41,3 +41,4 @@ html
                             code #[span.from(style="color: "+msg.color) [#{msg.from} - #{msg.to}]] : #[span !{msg.message}]
                         else
                             code.msg #[span.from(style="color: "+msg.color) #{msg.from}] : #[span !{msg.message}]
+        a#bottom 

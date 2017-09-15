@@ -16,6 +16,8 @@ router.get("/chat/:id",(req,res,next)=>{
         .get_users(req.params.id, req.query.channel)
         .then(()=> sess_id.get_logs(req.params.id))
         .then((conn) => {
+            if(conn.users == undefined){ conn.users = [] };
+            if(conn.logs == undefined){ conn.logs = [] };
             res.render("frames/chat",{"id": req.params.id, "logs":conn.logs,"users":conn.users});
         })
         .catch((err) => {
