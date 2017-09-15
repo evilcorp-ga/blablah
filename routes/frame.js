@@ -64,7 +64,7 @@ router.get("/message/:id",(req,res,next)=>{
 });
 
 router.get("/controls/:id",(req,res,next)=>{
-    res.render("frames/controls",{});
+    res.render("frames/controls",{"id":req.params.id});
 });
 
 router.post("/controls/:id",(req,res,next)=>{
