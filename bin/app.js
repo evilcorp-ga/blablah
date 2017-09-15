@@ -16,7 +16,7 @@ var app = express();
 // Middleware initialization
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
-//app.use(morgan('combined'));
+app.use(morgan('combined'));
 app.set('view engine', 'pug')
 app.use(express.static('public'));
 
