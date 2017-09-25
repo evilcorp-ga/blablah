@@ -1,5 +1,9 @@
 # blablah
-Irc webchat applciation without using javascript
+IRC webchat applciation without using javascript (for the front end)
+
+Written in NodeJS (So we keep the JS on the backend)
+
+Modeled on Le-Chat (Check our Le-Chat-PHP clone)
 
 ## Tools needed
 To install this application, we recommend to download the .zip or clone the repository to a debian linux machine.
