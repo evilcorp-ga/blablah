@@ -138,3 +138,20 @@ pre {
     text-decoration: none;
     color: rgba(250,250,250,.6);
 }
+
+#donate {
+	display: inline-block;
+	position: relative;
+	margin-top: 30px;
+	height: 100%;
+	margin-left: 38%;
+	margin-right: 38%;
+	text-align: center;
+	font-size: 11px;
+	width:352px
+}
+
+#donate img {
+	width: 114px;
+	height: 114px;
+}
