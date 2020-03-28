@@ -28,10 +28,11 @@ If you have downloaded the files and installed the tools needed you are able to 
 
 You have to change to the application's root directory (where the package.json file is) and run `sudo npm install`. This command will download the missing dependencies automagically.
 
-When the install command finishes you only have to set the environment variable `http_port` like:
+When you finished the install set up a .env file with the following settings
 
 ```
-sudo export http_port=<free port>
+http_port=<free_port>
+channel=#ChannelName
 ```
 
 Where `<free_port>` must be replaced by any free port an your system >=0 and <=65535.

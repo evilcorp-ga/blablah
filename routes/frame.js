@@ -1,6 +1,7 @@
 // Require all external lib
 const express = require('express');
 const session = require('../lib/session');
+var channel = process.env.channel;
 
 // Get instance to router
 var router = express.Router();
@@ -11,14 +12,14 @@ var router = express.Router();
 router.get("/chat/:id",(req,res,next)=>{
     var sess_id = new session("irc.evilcorp.ga",6667);
     if( req.query.channel === undefined || req.query.channel === "")
-        req.query.channel = "#lobby";
+        req.query.channel = channel;
     sess_id
         .get_users(req.params.id, req.query.channel)
         .then(()=> sess_id.get_logs(req.params.id))
         .then((conn) => {
             if(conn.users == undefined){ conn.users = [] };
             if(conn.logs == undefined){ conn.logs = [] };
-            res.render("frames/chat",{"id": req.params.id, "logs":conn.logs,"users":conn.users});
+            res.render("frames/chat",{"id": req.params.id, "channel": channel, "logs":conn.logs,"users":conn.users});
         })
         .catch((err) => {
             res.status(400).render("frames/error",{
@@ -33,12 +34,9 @@ router.get("/chat/:id",(req,res,next)=>{
  */
 router.post("/message/:id",(req,res,next)=>{
     if( req.query.channel === undefined || req.query.channel === "") 
-        req.query.channel = "#lobby";
+        req.query.channel = channel;
     var cmd = req.body.command;
-    var channel = req.query.channel;
     var sess_id = new session("irc.evilcorp.ga",6667);
-    if( req.query.channel === undefined || req.query.channel === null) 
-        req.query.channel = "#lobby";
     sess_id
         .send_message(req.params.id,cmd,channel)
         .then((resp) => {
@@ -61,7 +59,7 @@ router.post("/message/:id",(req,res,next)=>{
  */
 router.get("/message/:id",(req,res,next)=>{
     if( req.query.channel === undefined || req.query.channel === null) 
-        req.query.channel = "#lobby";
+        req.query.channel = channel;
     res.render("frames/message",{
         "id": req.params.id,
         "channel": req.query.channel
@@ -69,7 +67,7 @@ router.get("/message/:id",(req,res,next)=>{
 });
 
 router.get("/controls/:id",(req,res,next)=>{
-    res.render("frames/controls",{"id":req.params.id});
+    res.render("frames/controls",{"id":req.params.id,"channel":req.query.channel});
 });
 
 router.post("/controls/:id",(req,res,next)=>{

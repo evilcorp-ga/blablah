@@ -41,6 +41,10 @@ app.get("/",(req,res,next) => {
         //.send("Route not found");
 //});
 
+//default channel
+
+var channel = process.env.channel;
+
 // Get port to listen on
 var http_port = process.env.http_port;
 http_port     = parseInt(http_port,10);
