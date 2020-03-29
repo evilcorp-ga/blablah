@@ -6,5 +6,17 @@ html
     body
         h1 IRC "NOJS" interface
         form(method="POST" action="/session/new")
-            input(type="text" placeholder="username" name="username")
-            button Connect
+            table
+                tr
+                    td
+                        | Username
+                    td
+                        input(type="text" name="username")
+                tr
+                    td
+                        | Channel Key (Optional)
+                    td
+                        input(type="password" name="password")
+                tr
+                    td
+                        button Connect

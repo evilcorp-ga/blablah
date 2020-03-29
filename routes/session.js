@@ -15,11 +15,13 @@ router.post("/new",(req,res,next)=>{
         .then(() => sess_id.commit_connection() )
         .then(() => sess_id.attach_handle() )
         .then(() => sess_id.set_user(req.body.username) )
+	.then(() => sess_id.set_chankey(req.body.password) )
         .then(() => sess_id.get_initial_users())
         .then((key) => {
             res.redirect("/chat/"+key);
         })
         .catch((err)=> {
+            console.log( err );
             res.status(400).send(err.message);
         });
 });
