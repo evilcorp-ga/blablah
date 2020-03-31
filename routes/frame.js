@@ -11,8 +11,7 @@ var router = express.Router();
  */
 router.get("/chat/:id",(req,res,next)=>{
     var sess_id = new session("irc.evilcorp.ga",6667);
-    if( req.query.channel === undefined || req.query.channel === "")
-        req.query.channel = channel;
+    if( req.query.channel ) channel = req.query.channel;
     sess_id
         .get_users(req.params.id, req.query.channel)
         .then(()=> sess_id.get_logs(req.params.id))
@@ -33,16 +32,16 @@ router.get("/chat/:id",(req,res,next)=>{
  * Post new message
  */
 router.post("/message/:id",(req,res,next)=>{
-    if( req.query.channel === undefined || req.query.channel === "") 
-        req.query.channel = channel;
+    if( req.query.channel ) channel = req.query.channel;
     var cmd = req.body.command;
+    console.log("CHANNEL "+channel);
     var sess_id = new session("irc.evilcorp.ga",6667);
     sess_id
         .send_message(req.params.id,cmd,channel)
         .then((resp) => {
             res.render("frames/message",{
                 'id': req.params.id,
-                'channel': req.query.channel
+                'channel': channel
             });
         })
         .catch((err) => {
@@ -58,11 +57,10 @@ router.post("/message/:id",(req,res,next)=>{
  * Form to post new message
  */
 router.get("/message/:id",(req,res,next)=>{
-    if( req.query.channel === undefined || req.query.channel === null) 
-        req.query.channel = channel;
+    if( req.query.channel ) channel = req.query.channel;
     res.render("frames/message",{
         "id": req.params.id,
-        "channel": req.query.channel
+        "channel": channel
     });
 });
 

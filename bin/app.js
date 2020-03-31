@@ -25,7 +25,6 @@ var routes = loader('../routes');
 Object.keys(routes).forEach((route) => {
     var message = "Loading route : "+route;
     message = chalk.green(message);
-    console.log(message);
     app.use("/"+route,routes[route]);
 });
 
@@ -43,7 +42,7 @@ app.get("/",(req,res,next) => {
 
 //default channel
 
-var channel = process.env.channel;
+var channel = "%23"+process.env.channel;
 
 // Get port to listen on
 var http_port = process.env.http_port;

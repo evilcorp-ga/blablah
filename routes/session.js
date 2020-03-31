@@ -21,7 +21,7 @@ router.post("/new",(req,res,next)=>{
             res.redirect("/chat/"+key);
         })
         .catch((err)=> {
-            console.log( err );
+            console.log( "new "+err );
             res.status(400).send(err.message);
         });
 });
