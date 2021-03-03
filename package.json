@@ -32,7 +32,7 @@
     "memory-cache": "^0.2.0",
     "morgan": "^1.10.0",
     "node-emoji": "^1.8.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "randomcolor": "^0.5.3",
     "require-dir": "^0.3.2"
   }
